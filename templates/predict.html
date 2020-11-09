@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Bike Demand Predictor</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Bike Demand Predictor</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Predictor</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="data-visualization">Data Visualization</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="logout">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="static/vendor/jquery/jquery.slim.min.js"></script>
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Page Content -->
+
+<div class="jumbotron">
+    <div class="container">
+        <h1 align="center">Bike Prediction Tool</h1>
+        <script> function goBack(){
+            window.history.back();
+        }
+        </script>
+        <div style="background: white" class="jumbotron">
+            <h4 align="center"> {{pred}} </h4>
+            <br>
+            <h5 align="center">The Outcome Accuracy as Mean Absolute Error: ~150 Bikes</h5>
+        </div>
+        <p align="center"><button class="btn btn-primary btn-lg" onclick="goBack()">Go Back</button></p>
+    </div>
+        </form>
+    </div>
+
+</div>
+<div id="result">
+
+</div>
+
+</body>
+
+</html>

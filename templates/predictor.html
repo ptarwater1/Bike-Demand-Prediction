@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Bike Demand Predictor</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Bike Demand Predictor</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Predictor</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="data-visualization">Data Visualization</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="logout">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="static/vendor/jquery/jquery.slim.min.js"></script>
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Page Content -->
+
+<div class="jumbotron">
+    <div class="container">
+        <h1 align="center">Bike Prediction Tool</h1>
+        <p>Using inputs of Working Day, Temperature, Humidity and Weather Conditions the bike prediction
+          tool uses Random Forest Regression to predict the bike demand.
+            This prediction is shown as the number of bikes demanded for any given hour of the day.
+            The outcome accuracy will be given in terms of mean absolute error(MAE).
+            MAE can be explained as the average amount of bikes the prediction tool is off. In order to meet the needs of
+            the prediction tool, MAE can be added to the prediction given to better estimate the required number of bikes
+            at any given hour of the day.</p>
+        <form action="{{ url_for('predict') }}" method="POST" class="form-horizontal">
+        <div class="form-group">
+        <p>Working Day :
+            <select class="form-control" id="workingday" name="workingday">
+                <option value='0'>Non Working Day or Holiday</option>
+                <option value='1'>Working Day</option>
+            </select>
+        </p>
+
+        <p>Temperature in C&#176; :
+            <select class="form-control" id="temperature" name="temperature">
+
+                <option>0</option>
+
+                <option>1</option>
+
+                <option>2</option>
+
+                <option>3</option>
+
+                <option>4</option>
+
+                <option>5</option>
+
+                <option>6</option>
+
+                <option>7</option>
+
+                <option>8</option>
+
+                <option>9</option>
+
+                <option>10</option>
+
+                <option>11</option>
+
+                <option>12</option>
+
+                <option>13</option>
+
+                <option>14</option>
+
+                <option>15</option>
+
+                <option>16</option>
+
+                <option>17</option>
+
+                <option>18</option>
+
+                <option>19</option>
+
+                <option>20</option>
+
+                <option>21</option>
+
+                <option>22</option>
+
+                <option>23</option>
+
+                <option>24</option>
+
+                <option>25</option>
+
+                <option>26</option>
+
+                <option>27</option>
+
+                <option>28</option>
+
+                <option>29</option>
+
+                <option>30</option>
+
+                <option>31</option>
+
+                <option>32</option>
+
+                <option>33</option>
+
+                <option>34</option>
+
+                <option>35</option>
+
+                <option>36</option>
+
+                <option>37</option>
+
+                <option>38</option>
+
+                <option>39</option>
+
+                <option>40</option>
+
+                <option>41</option>
+
+            </select>
+        </p>
+
+
+
+        <p>Humidity Percentage :
+            <select class="form-control" id="humidity" name="humidity">
+
+                <option>0</option>
+
+                <option>1</option>
+
+                <option>2</option>
+
+                <option>3</option>
+
+                <option>4</option>
+
+                <option>5</option>
+
+                <option>6</option>
+
+                <option>7</option>
+
+                <option>8</option>
+
+                <option>9</option>
+
+                <option>10</option>
+
+                <option>11</option>
+
+                <option>12</option>
+
+                <option>13</option>
+
+                <option>14</option>
+
+                <option>15</option>
+
+                <option>16</option>
+
+                <option>17</option>
+
+                <option>18</option>
+
+                <option>19</option>
+
+                <option>20</option>
+
+                <option>21</option>
+
+                <option>22</option>
+
+                <option>23</option>
+
+                <option>24</option>
+
+                <option>25</option>
+
+                <option>26</option>
+
+                <option>27</option>
+
+                <option>28</option>
+
+                <option>29</option>
+
+                <option>30</option>
+
+                <option>31</option>
+
+                <option>32</option>
+
+                <option>33</option>
+
+                <option>34</option>
+
+                <option>35</option>
+
+                <option>36</option>
+
+                <option>37</option>
+
+                <option>38</option>
+
+                <option>39</option>
+
+                <option>40</option>
+
+                <option>41</option>
+
+                <option>42</option>
+
+                <option>43</option>
+
+                <option>44</option>
+
+                <option>45</option>
+
+                <option>46</option>
+
+                <option>47</option>
+
+                <option>48</option>
+
+                <option>49</option>
+
+                <option>50</option>
+
+                <option>51</option>
+
+                <option>52</option>
+
+                <option>53</option>
+
+                <option>54</option>
+
+                <option>55</option>
+
+                <option>56</option>
+
+                <option>57</option>
+
+                <option>58</option>
+
+                <option>59</option>
+
+                <option>60</option>
+
+                <option>61</option>
+
+                <option>62</option>
+
+                <option>63</option>
+
+                <option>64</option>
+
+                <option>65</option>
+
+                <option>66</option>
+
+                <option>67</option>
+
+                <option>68</option>
+
+                <option>69</option>
+
+                <option>70</option>
+
+                <option>71</option>
+
+                <option>72</option>
+
+                <option>73</option>
+
+                <option>74</option>
+
+                <option>75</option>
+
+                <option>76</option>
+
+                <option>77</option>
+
+                <option>78</option>
+
+                <option>79</option>
+
+                <option>80</option>
+
+                <option>81</option>
+
+                <option>82</option>
+
+                <option>83</option>
+
+                <option>84</option>
+
+                <option>85</option>
+
+                <option>86</option>
+
+                <option>87</option>
+
+                <option>88</option>
+
+                <option>89</option>
+
+                <option>90</option>
+
+                <option>91</option>
+
+                <option>92</option>
+
+                <option>93</option>
+
+                <option>94</option>
+
+                <option>95</option>
+
+                <option>96</option>
+
+                <option>97</option>
+
+                <option>98</option>
+
+                <option>99</option>
+
+                <option>100</option>
+
+            </select>
+        </p>
+
+        <p>Weather :
+            <select class="form-control" id="weather1" name="weather1">
+                <option value='1'>1: Clear, Few Clouds, Partly Cloudy</option>
+                <option value='2'>2: Mist + Cloudy, Mist + Broken clouds, Mist + Few clouds, Mist </option>
+                <option value='3'>3: Light Snow, Light Rain + Thunderstorm + Scattered clouds, Light Rain + Scattered clouds </option>
+                <option value='4'>4: Heavy Rain + Ice Pallets + Thunderstorm + Mist, Snow + Fog </option>
+            </select>
+        </p>
+
+
+        <p align="center"><button class="btn btn-primary btn-lg" type="submit">Make Prediction</button></p>
+        </div>
+        </form>
+    </div>
+    <p> {{pred}} </p>
+</div>
+<div id="result">
+
+</div>
+
+</body>
+
+</html>

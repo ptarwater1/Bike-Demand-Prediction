@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Bike Demand Predictor</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Bike Demand Predictor</a>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+<div class="jumbotron">
+    <div class="container">
+
+  <!-- Login Form -->
+    <center>
+    <form style="width:200px" class="form-signin" action="" method="post">
+      <h2 class="form-signin-heading">Please Login</h2>
+      <br>
+      <input type="text" class="form-control" name="username" placeholder="Username" value="{{
+          request.form.username }}" autofocus="" />
+      <br>
+      <input type="password" class="form-control" name="password" placeholder="Password" value="{{
+          request.form.username }}"/>
+      <br>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" href="predictor">Login</button>
+    </form>
+      {% if error %}
+      <p class="error"><strong>Error: </strong>{{ error }}
+      {% endif %}
+        {{ message }}
+
+  </center>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="static/vendor/jquery/jquery.slim.min.js"></script>
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</div>
+</div>
+
+</body>
+
+</html>
